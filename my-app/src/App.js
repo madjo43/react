@@ -1,24 +1,17 @@
-
-import './App.css';
-import { Logo } from "./components/Logo";
-import { Navigation } from "./components/Navigation";
-import { CoinFlip } from "./components/CoinFlip";
+import { SignInPage } from "./pages/SignInPage";
+import { ChatPage } from "./pages/ChatPage";
+import { useState } from "react";
 
 function App() {
-  const today = new Date();
+  const [ username, setUsername] = useState('')
 
+  function handleSubmit(username){
+    setUsername(username)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <Logo/>
-        <h1>Hello world!</h1>
-        <p>{today.toLocaleString()}</p>
-        <CoinFlip />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Navigation/>
-      </header>
+    <div>
+      {username === '' && <SignInPage onSubmit={handleSubmit}/>}
+      {username !== '' && <ChatPage />}
     </div>
   );
 }
