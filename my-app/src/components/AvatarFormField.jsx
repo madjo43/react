@@ -1,12 +1,15 @@
 import { FormField } from "./FormField";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { avatarImages } from "../library/avatar"
 
 
 export function AvatarFormField (props) {
     const [index, setIndex] = useState(0);
+
+    useEffect(() =>{
+        props.onChange(index);
+    }, [index, props]);
     
-    props.onChange(index);
 
     function handleNextClick () {
         if(index >= avatarImages.length -1) {

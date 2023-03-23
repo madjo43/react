@@ -16,6 +16,8 @@ export function ChatPage() {
 
    }
 
+
+
     const messageComponents = messages.map((message) => {
         return   <Message key={message.id} avatarIndex={message.author.avatarIndex} author={message.author.username} text={message.text} />;
     });
@@ -26,6 +28,7 @@ export function ChatPage() {
     return (
         <div>
             Chat page
+            <button type="button" onClick={context.signOut}>Sign out</button>
             <div className="message-list">
                 {messageComponents}
             </div>

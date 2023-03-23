@@ -32,5 +32,5 @@ export function MessageOfTheDay () {
             <div>{data.message}</div>
             <button type="button" onClick={handleFetch}>Fetch data</button>
         </div>
-        )
+        );
 }
