@@ -5,7 +5,26 @@ import { FaqPage } from "./pages/FaqPage";
 import { useContext } from "react";
 import { AppContext } from "./contexts/AppContext";
 
+const initialState = {
+  counter: 0,
+  username: 'mladen',
+};
 
+function reducer(initialState, action) {
+  console.log('REDUCER', initialState, action);
+  if (action.type === 'INCREMENT') {
+  return {...initialState, counter: initialState.counter + action.value};
+  }
+  if (action.type === 'DECREMENT') {
+    return {...initialState, counter: initialState.counter - action.value};
+    }
+}
+
+const state1 = reducer(initialState, {type:'INCREMENT', value:2 });
+const state2 = reducer(state1,{type:'DECREMENT', value:3 });
+
+console.log('REDUCER', state1);
+console.log('REDUCER', state2);
 
 function App() {
 
@@ -15,7 +34,7 @@ function App() {
     return (
       <div>
         <h1>Error</h1>
-        <div>Somethin went wring: {context.error.toString()}</div>
+        <div>Something went wrong: {context.error.toString()}</div>
       </div>
     );
   }

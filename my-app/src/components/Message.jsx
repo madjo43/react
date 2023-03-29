@@ -1,6 +1,5 @@
-
 import { avatarImages } from "../library/avatar";
-import { DateNow } from "./DateNow";
+
 
 export function Message (props) {
 
